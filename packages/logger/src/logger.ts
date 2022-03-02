@@ -3,13 +3,13 @@ import chalk from 'chalk'
 const color = (s: string) => {
   switch (s[1]) {
     case 'I':
-      return chalk.bgBlue.black(s)
+      return chalk.bgBlue.black.bold(s)
     case 'W':
-      return chalk.bgYellow.black(s)
+      return chalk.bgYellow.black.bold(s)
     case 'E':
-      return chalk.bgRed.black(s)
+      return chalk.bgRed.black.bold(s)
     case 'S':
-      return chalk.bgGreenBright.black(s)
+      return chalk.bgGreenBright.black.bold(s)
   }
 }
 
