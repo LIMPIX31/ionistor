@@ -2,6 +2,9 @@ import path from 'path'
 import * as fsx from 'fs'
 import { build } from 'esbuild'
 import { Logger } from '@ionistor/logger'
+import * as process from 'process'
+import * as fs from 'fs/promises'
+import _ from 'lodash'
 
 const ROOT_PATH = process.cwd()
 const SRC_PATH = path.join(ROOT_PATH, 'src')
@@ -43,13 +46,15 @@ const defaultConfig: Config = {
     appNM: APP_NODEMODULES_PATH,
     srcNM: SRC_NODEMODULES_PATH,
     srcMain: SRC_MAIN_PATH,
-    srcRenderer: SRC_RENDERER_PATH,
-  },
+    srcRenderer: SRC_RENDERER_PATH
+  }
 }
+
+export const defineConfig = (config: Partial<Config>) => config
 
 export const getConfig = async (): Promise<Config> => {
   const cfgpath = path.join(process.cwd(), 'ionistor.config.ts')
-  const cfgpathbuild = path.join(__dirname, 'config.js')
+  const cfgpathbuild = path.join(process.cwd(), 'config.mjs')
   if (fsx.existsSync(cfgpath)) {
     await build({
       entryPoints: [cfgpath],
@@ -68,11 +73,11 @@ export const getConfig = async (): Promise<Config> => {
               const id = args.path
               if (id[0] !== '.' && !path.isAbsolute(id)) {
                 return {
-                  external: true,
+                  external: true
                 }
               }
             })
-          },
+          }
         },
         {
           name: 'replace-import-meta',
@@ -90,15 +95,17 @@ export const getConfig = async (): Promise<Config> => {
                     /\b__dirname\b/g,
                     JSON.stringify(path.dirname(args.path))
                   )
-                  .replace(/\b__filename\b/g, JSON.stringify(args.path)),
+                  .replace(/\b__filename\b/g, JSON.stringify(args.path))
               }
             })
-          },
-        },
-      ],
+          }
+        }
+      ]
     })
     try {
-      return Object.assign(await import(cfgpathbuild), defaultConfig)
+      const loadedcfg = await import(`file://${cfgpathbuild}`)
+      await fs.unlink(cfgpathbuild)
+      return _.merge(defaultConfig, loadedcfg)
     } catch (e) {
       Logger.log('warn', 'Failed to load config. Using default instead')
       return defaultConfig
