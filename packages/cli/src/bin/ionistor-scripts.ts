@@ -2,10 +2,10 @@
 import { program } from 'commander'
 import { runScript } from '../utils/runScript.js'
 import { CliStage } from 'cli-stage'
-import { getConfig } from '../utils/config'
+import { getConfig } from '../utils/config.js'
 import path from 'path'
 import { Logger } from '@ionistor/logger'
-import { check } from '../utils/check'
+import { check } from '../utils/check.js'
 
 const tsconf = 'node_modules/@ionistor/core/dist/tsconfig.electron.json'
 
