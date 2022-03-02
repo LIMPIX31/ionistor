@@ -15,6 +15,6 @@ const color = (s: string) => {
 
 export abstract class Logger {
   static log(level: 'info' | 'warn' | 'error' | 'success', message: string) {
-    console.log(color(` ${level[0].toUpperCase()} `) + message)
+    console.log(color(` ${level[0].toUpperCase()} `) + ` ${message}`)
   }
 }
