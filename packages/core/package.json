@@ -20,9 +20,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
     "electron": "^17.1.0",

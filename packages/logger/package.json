@@ -17,9 +17,7 @@
   ],
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "version": "yarn format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "dependencies": {
     "chalk": "^5.0.0"
