@@ -1,0 +1,54 @@
+{
+  "name": "@ionistor/cli",
+  "version": "1.0.0",
+  "description": "Cli utils for @ionistor",
+  "main": "lib/index.js",
+  "repository": "https://github.com/LIMPIX31/ionistor.git",
+  "author": "LIMPIX31",
+  "license": "MIT",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "files": [
+    "lib/**/*",
+    "dist/**/*"
+  ],
+  "bin": {
+    "ionistor-scripts": "lib/bin/ionistor-scripts.js"
+  },
+  "exports": [
+    "./lib/index.js"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "@ionistor/logger": "^1.0.0",
+    "chalk": "^5.0.0",
+    "cli-stage": "^1.0.1",
+    "commander": "^9.0.0",
+    "concurrently": "^7.0.0",
+    "electron": "^17.1.0",
+    "esbuild": "^0.14.23",
+    "execa": "^6.1.0",
+    "inquirer": "^8.2.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^8.2.0",
+    "@types/node": "^17.0.21",
+    "@types/rimraf": "^3.0.2",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "keywords": [
+    "ionistor",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/LIMPIX31/Ionistor/issues"
+  },
+  "homepage": "https://github.com/LIMPIX31/Ionistor#readme"
+}

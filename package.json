@@ -1,0 +1,26 @@
+{
+  "name": "@ionistor/ionistor",
+  "version": "0.0.0",
+  "description": "A powerful fusion of modern technologies for creating desktop cross-platform applications [Electron, React, Vite]",
+  "repository": "https://github.com/LIMPIX31/ionistor.git",
+  "author": "LIMPIX31",
+  "license": "MIT",
+  "private": true,
+  "keywords": [
+    "ionistor",
+    "electron",
+    "react",
+    "vite",
+    "app",
+    "IonistorJS",
+    "desktop",
+    "crossplatform"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/LIMPIX31/Ionistor/issues"
+  },
+  "homepage": "https://github.com/LIMPIX31/Ionistor#readme"
+}
