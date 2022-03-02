@@ -1,5 +1,3 @@
-import {Logger} from "./logger.js";
+import { Logger } from './logger.js'
 
-export {
-  Logger
-}
+export { Logger }

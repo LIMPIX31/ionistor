@@ -1,6 +1,6 @@
 {
   "name": "@ionistor/logger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Logger for @ionistor",
   "main": "lib/index.js",
   "repository": "https://github.com/LIMPIX31/ionistor.git",
